@@ -1960,3 +1960,175 @@ rgba(4, 6, 20, 0.52)
 
     pointer-events: none;
 }
+/* =========================================
+   COSMOS ATLAS — WIDE UNIFORM LAYOUT
+========================================= */
+
+.navbar,
+main,
+footer {
+    width: calc(100% - 48px);
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    padding-left: 34px;
+    padding-right: 34px;
+}
+
+
+/* MAIN CONTENT */
+
+main {
+    padding: 28px 0 60px;
+}
+
+
+/* HERO MAIS LARGO */
+
+.hero,
+.page-hero {
+    width: 100%;
+    max-width: none;
+
+    box-sizing: border-box;
+
+    padding: 55px 48px;
+
+    margin-bottom: 32px;
+}
+
+
+/* LIMITA SOMENTE O TEXTO DO HERO */
+
+.hero > *,
+.page-hero > * {
+    max-width: 820px;
+}
+
+
+/* SEÇÕES */
+
+.overview,
+.data-section,
+.about-grid,
+.about-section,
+.about-source,
+.about-author,
+.systems-kpis,
+.habitability-kpis,
+.compare-controls,
+.compare-grid,
+.filters-panel,
+.explore-summary,
+.table-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* TÍTULOS DAS SEÇÕES */
+
+.section-heading {
+    max-width: none;
+    margin-bottom: 26px;
+}
+
+
+/* CARDS */
+
+.cards {
+    width: 100%;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* GRÁFICOS */
+
+.chart-grid {
+    width: 100%;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ABOUT */
+
+.about-grid {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+}
+
+
+/* TABELAS */
+
+.table-container {
+    overflow-x: auto;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 22px 34px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .cards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .navbar,
+    main,
+    footer {
+        width: calc(100% - 24px);
+    }
+
+    main {
+        padding-top: 18px;
+    }
+
+    .hero,
+    .page-hero {
+        padding: 36px 24px;
+    }
+
+    .cards,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
