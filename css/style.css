@@ -1905,7 +1905,7 @@ body {
             rgba(3, 5, 18, 0.78),
             rgba(4, 6, 20, 0.84)
         ),
-        url("../galaxy-bg.png");
+        url("../galaxy-bg.png.png")
 
     background-size: cover;
     background-position: center;
