@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Compare | Cosmos Atlas</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="brand">
+            ✦ COSMOS ATLAS
+        </div>
+
+        <div class="nav-links">
+            <a href="../index.html">Overview</a>
+            <a href="explore.html">Explore</a>
+            <a href="compare.html">Compare</a>
+            <a href="#">Habitability</a>
+            <a href="#">Discoveries</a>
+            <a href="#">Systems</a>
+            <a href="#">About</a>
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <section class="page-hero">
+
+            <p class="eyebrow">
+                PLANET COMPARISON
+            </p>
+
+            <h1>
+                Compare distant worlds
+            </h1>
+
+            <p>
+                Select two confirmed exoplanets and compare
+                their physical and orbital properties.
+            </p>
+
+        </section>
+
+
+        <section class="compare-controls">
+
+            <div class="filter-group">
+
+                <label for="planetA">
+                    Planet A
+                </label>
+
+                <select id="planetA"></select>
+
+            </div>
+
+
+            <div class="compare-vs">
+                VS
+            </div>
+
+
+            <div class="filter-group">
+
+                <label for="planetB">
+                    Planet B
+                </label>
+
+                <select id="planetB"></select>
+
+            </div>
+
+        </section>
+
+
+        <section class="compare-grid">
+
+            <article class="planet-panel">
+
+                <p class="eyebrow">
+                    PLANET A
+                </p>
+
+                <h2 id="nameA">
+                    —
+                </h2>
+
+                <p
+                    class="planet-host"
+                    id="hostA"
+                >
+                    —
+                </p>
+
+                <div class="planet-metrics">
+
+                    <div>
+                        <span>Radius</span>
+                        <strong id="radiusA">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Mass</span>
+                        <strong id="massA">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Orbital Period</span>
+                        <strong id="periodA">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Temperature</span>
+                        <strong id="temperatureA">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Distance</span>
+                        <strong id="distanceA">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Discovery Year</span>
+                        <strong id="yearA">—</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="planet-panel">
+
+                <p class="eyebrow">
+                    PLANET B
+                </p>
+
+                <h2 id="nameB">
+                    —
+                </h2>
+
+                <p
+                    class="planet-host"
+                    id="hostB"
+                >
+                    —
+                </p>
+
+                <div class="planet-metrics">
+
+                    <div>
+                        <span>Radius</span>
+                        <strong id="radiusB">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Mass</span>
+                        <strong id="massB">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Orbital Period</span>
+                        <strong id="periodB">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Temperature</span>
+                        <strong id="temperatureB">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Distance</span>
+                        <strong id="distanceB">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Discovery Year</span>
+                        <strong id="yearB">—</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Designed & developed by
+            <strong>
+                Stephany Gonçalves da Silva
+            </strong>
+        </p>
+
+        <small>
+            Cosmos Atlas • Portfolio Project
+        </small>
+
+    </footer>
+
+
+    <script src="../js/compare.js"></script>
+
+</body>
+
+</html>
