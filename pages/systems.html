@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Systems | Cosmos Atlas</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="brand">
+            ✦ COSMOS ATLAS
+        </div>
+
+        <div class="nav-links">
+            <a href="../index.html">Overview</a>
+            <a href="explore.html">Explore</a>
+            <a href="compare.html">Compare</a>
+            <a href="habitability.html">Habitability</a>
+            <a href="discoveries.html">Discoveries</a>
+            <a href="systems.html">Systems</a>
+            <a href="#">About</a>
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <section class="page-hero">
+
+            <p class="eyebrow">
+                PLANETARY SYSTEMS
+            </p>
+
+            <h1>
+                Explore planetary systems
+            </h1>
+
+            <p>
+                Discover stars hosting confirmed exoplanets
+                and explore how planetary systems differ
+                across our galactic neighborhood.
+            </p>
+
+        </section>
+
+
+        <section class="systems-kpis">
+
+            <article class="card">
+
+                <span class="card-icon">
+                    ⭐
+                </span>
+
+                <p class="card-label">
+                    Planetary Systems
+                </p>
+
+                <strong id="totalSystems">
+                    —
+                </strong>
+
+            </article>
+
+
+            <article class="card">
+
+                <span class="card-icon">
+                    🪐
+                </span>
+
+                <p class="card-label">
+                    Multi-Planet Systems
+                </p>
+
+                <strong id="multiSystems">
+                    —
+                </strong>
+
+            </article>
+
+
+            <article class="card">
+
+                <span class="card-icon">
+                    ✨
+                </span>
+
+                <p class="card-label">
+                    Largest Known System
+                </p>
+
+                <strong id="largestSystem">
+                    —
+                </strong>
+
+            </article>
+
+
+            <article class="card">
+
+                <span class="card-icon">
+                    🌌
+                </span>
+
+                <p class="card-label">
+                    Average Distance
+                </p>
+
+                <strong id="averageDistance">
+                    —
+                </strong>
+
+            </article>
+
+        </section>
+
+
+        <section class="data-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    SYSTEM RANKING
+                </p>
+
+                <h2>
+                    Systems with the most confirmed planets
+                </h2>
+
+                <p>
+                    Host stars ranked by the number
+                    of confirmed planets in their systems.
+                </p>
+
+            </div>
+
+            <div class="chart-card">
+
+                <canvas id="systemsRankingChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <section class="data-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    MULTIPLICITY
+                </p>
+
+                <h2>
+                    Planets per system
+                </h2>
+
+                <p>
+                    Explore how frequently systems contain
+                    one, two or several confirmed planets.
+                </p>
+
+            </div>
+
+            <div class="chart-card">
+
+                <canvas id="systemDistributionChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <section class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Host Star</th>
+                        <th>Confirmed Planets</th>
+                        <th>Distance</th>
+                        <th>Stellar Temperature</th>
+                        <th>Stellar Radius</th>
+                        <th>Stellar Mass</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="systemsTable"></tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Designed & developed by
+            <strong>
+                Stephany Gonçalves da Silva
+            </strong>
+        </p>
+
+        <small>
+            Cosmos Atlas • Portfolio Project
+        </small>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/systems.js"></script>
+
+</body>
+
+</html>
