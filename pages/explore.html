@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Explore | Cosmos Atlas</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="brand">
+            ✦ COSMOS ATLAS
+        </div>
+
+        <div class="nav-links">
+            <a href="../index.html">Overview</a>
+            <a href="explore.html">Explore</a>
+            <a href="#">Compare</a>
+            <a href="#">Habitability</a>
+            <a href="#">Discoveries</a>
+            <a href="#">Systems</a>
+            <a href="#">About</a>
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <section class="page-hero">
+
+            <p class="eyebrow">
+                EXOPLANET CATALOG
+            </p>
+
+            <h1>
+                Explore distant worlds
+            </h1>
+
+            <p>
+                Search and filter confirmed exoplanets
+                using real astronomical data.
+            </p>
+
+        </section>
+
+
+        <section class="filters-panel">
+
+            <div class="filter-group">
+
+                <label for="searchPlanet">
+                    Search planet or star
+                </label>
+
+                <input
+                    type="text"
+                    id="searchPlanet"
+                    placeholder="e.g. Kepler-22 b"
+                >
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label for="filterMethod">
+                    Discovery Method
+                </label>
+
+                <select id="filterMethod">
+                    <option value="All">
+                        All Methods
+                    </option>
+                </select>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label for="filterYear">
+                    Discovery Year
+                </label>
+
+                <select id="filterYear">
+                    <option value="All">
+                        All Years
+                    </option>
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <section class="explore-summary">
+
+            <p>
+                Showing
+                <strong id="resultCount">0</strong>
+                exoplanets
+            </p>
+
+        </section>
+
+
+        <section class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Planet</th>
+                        <th>Host Star</th>
+                        <th>Method</th>
+                        <th>Year</th>
+                        <th>Radius</th>
+                        <th>Mass</th>
+                        <th>Distance</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="planetTable"></tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Designed & developed by
+            <strong>
+                Stephany Gonçalves da Silva
+            </strong>
+        </p>
+
+        <small>
+            Cosmos Atlas • Portfolio Project
+        </small>
+
+    </footer>
+
+
+    <script src="../js/explore.js"></script>
+
+</body>
+
+</html>
