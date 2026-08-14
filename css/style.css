@@ -837,3 +837,158 @@ tbody tr:hover {
     }
 
 }
+/* =========================================
+   HABITABILITY PAGE
+========================================= */
+
+.habitability-warning {
+    display: flex;
+    gap: 18px;
+
+    padding: 24px;
+
+    margin-bottom: 28px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(157, 124, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(157, 124, 255, 0.22);
+}
+
+.habitability-warning > span {
+    font-size: 1.8rem;
+}
+
+.habitability-warning strong {
+    color: white;
+}
+
+.habitability-warning p {
+    margin: 7px 0 0;
+
+    color: var(--muted);
+
+    line-height: 1.6;
+}
+
+
+.habitability-kpis {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 55px;
+}
+
+
+.habitability-method {
+    margin-bottom: 32px;
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background:
+        rgba(20, 27, 55, 0.66);
+
+    border:
+        1px solid var(--border);
+}
+
+
+.habitability-method h2 {
+    margin: 0 0 12px;
+
+    font-family:
+        var(--font-title);
+
+    font-size: 2rem;
+}
+
+
+.habitability-method > p:last-of-type {
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+
+.method-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-top: 25px;
+}
+
+
+.method-grid div {
+    padding: 17px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(113, 151, 255, 0.06);
+
+    border:
+        1px solid
+        rgba(153, 172, 255, 0.08);
+}
+
+
+.method-grid span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--muted);
+
+    font-size: 0.7rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+}
+
+
+.method-grid strong {
+    color: white;
+
+    font-family:
+        var(--font-title);
+
+    font-size: 1.05rem;
+}
+
+
+@media (max-width: 800px) {
+
+    .habitability-kpis {
+        grid-template-columns: 1fr;
+    }
+
+    .method-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .method-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
