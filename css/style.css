@@ -147,17 +147,16 @@ main {
     margin: 0;
 
     font-family: var(--font-title);
-    font-size: clamp(3rem, 7vw, 6.3rem);
-    line-height: 0.98;
-
-    letter-spacing: -3px;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.02;
+    letter-spacing: 1px;
 
     background:
         linear-gradient(
             90deg,
             #ffffff,
-            #b9c7ff,
-            #aa8fff
+            #c8d3ff,
+            #b89cff
         );
 
     -webkit-background-clip: text;
