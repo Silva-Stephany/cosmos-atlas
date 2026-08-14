@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Habitability | Cosmos Atlas</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="brand">
+            ✦ COSMOS ATLAS
+        </div>
+
+        <div class="nav-links">
+            <a href="../index.html">Overview</a>
+            <a href="explore.html">Explore</a>
+            <a href="compare.html">Compare</a>
+            <a href="habitability.html">Habitability</a>
+            <a href="#">Discoveries</a>
+            <a href="#">Systems</a>
+            <a href="#">About</a>
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <section class="page-hero">
+
+            <p class="eyebrow">
+                EDUCATIONAL MODEL
+            </p>
+
+            <h1>
+                Habitability Potential
+            </h1>
+
+            <p>
+                Explore an experimental indicator based on
+                selected planetary parameters available
+                in the NASA Exoplanet Archive.
+            </p>
+
+        </section>
+
+
+        <section class="habitability-warning">
+
+            <span>⚠️</span>
+
+            <div>
+
+                <strong>
+                    Important scientific note
+                </strong>
+
+                <p>
+                    This score is an educational analytical
+                    model. It does not determine whether an
+                    exoplanet is habitable or capable of
+                    supporting life.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="habitability-kpis">
+
+            <article class="card">
+
+                <span class="card-icon">
+                    🌍
+                </span>
+
+                <p class="card-label">
+                    Analyzed Planets
+                </p>
+
+                <strong id="habitabilityAnalyzed">
+                    —
+                </strong>
+
+            </article>
+
+
+            <article class="card">
+
+                <span class="card-icon">
+                    ✨
+                </span>
+
+                <p class="card-label">
+                    Highest Score
+                </p>
+
+                <strong id="habitabilityHighest">
+                    —
+                </strong>
+
+            </article>
+
+
+            <article class="card">
+
+                <span class="card-icon">
+                    🪐
+                </span>
+
+                <p class="card-label">
+                    Top Candidate
+                </p>
+
+                <strong id="habitabilityTopPlanet">
+                    —
+                </strong>
+
+            </article>
+
+        </section>
+
+
+        <section class="habitability-method">
+
+            <p class="eyebrow">
+                METHODOLOGY
+            </p>
+
+            <h2>
+                How the indicator works
+            </h2>
+
+            <p>
+                The educational score considers available
+                values for planetary radius, received stellar
+                radiation, equilibrium temperature and mass.
+            </p>
+
+            <div class="method-grid">
+
+                <div>
+                    <span>Planet Radius</span>
+                    <strong>35 pts</strong>
+                </div>
+
+                <div>
+                    <span>Stellar Insolation</span>
+                    <strong>35 pts</strong>
+                </div>
+
+                <div>
+                    <span>Equilibrium Temperature</span>
+                    <strong>20 pts</strong>
+                </div>
+
+                <div>
+                    <span>Planet Mass</span>
+                    <strong>10 pts</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Planet</th>
+                        <th>Host Star</th>
+                        <th>Radius</th>
+                        <th>Mass</th>
+                        <th>Insolation</th>
+                        <th>Temperature</th>
+                        <th>Score</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="habitabilityTable"></tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Designed & developed by
+            <strong>
+                Stephany Gonçalves da Silva
+            </strong>
+        </p>
+
+        <small>
+            Cosmos Atlas • Portfolio Project
+        </small>
+
+    </footer>
+
+
+    <script src="../js/habitability.js"></script>
+
+</body>
+
+</html>
