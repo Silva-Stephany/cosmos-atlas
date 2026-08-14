@@ -992,3 +992,15 @@ tbody tr:hover {
     }
 
 }
+/* =========================================
+   DISCOVERIES PAGE
+========================================= */
+
+.data-section .chart-card {
+    height: 440px;
+}
+
+.data-section .chart-card canvas {
+    width: 100% !important;
+    height: 340px !important;
+}
