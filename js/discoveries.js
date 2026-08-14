@@ -1,23 +1,97 @@
 let exoplanetas = [];
 
 
+/* =========================================
+   CSV PARSER
+========================================= */
+
+function parseCSVLine(linha) {
+
+    const valores = [];
+
+    let atual = "";
+    let dentroDeAspas = false;
+
+
+    for (
+        let i = 0;
+        i < linha.length;
+        i++
+    ) {
+
+        const caractere =
+            linha[i];
+
+
+        if (
+            caractere === '"'
+        ) {
+
+            dentroDeAspas =
+                !dentroDeAspas;
+
+        }
+
+        else if (
+            caractere === "," &&
+            !dentroDeAspas
+        ) {
+
+            valores.push(
+                atual.trim()
+            );
+
+            atual = "";
+
+        }
+
+        else {
+
+            atual += caractere;
+
+        }
+
+    }
+
+
+    valores.push(
+        atual.trim()
+    );
+
+
+    return valores;
+
+}
+
+
+
+/* =========================================
+   CARREGAR DADOS
+========================================= */
+
 async function carregarDados() {
 
     const resposta =
-        await fetch("../data/exoplanets.csv");
+        await fetch(
+            "../data/exoplanets.csv"
+        );
+
 
     const texto =
         await resposta.text();
 
+
     const linhas =
         texto
             .trim()
-            .split("\n");
+            .split(/\r?\n/);
+
 
     const cabecalho =
-        linhas[0]
-            .replace("\r", "")
-            .split(",");
+        parseCSVLine(
+            linhas[0]
+        );
+
 
     exoplanetas =
         linhas
@@ -30,25 +104,36 @@ async function carregarDados() {
                 linha => {
 
                     const valores =
-                        linha
-                            .replace("\r", "")
-                            .split(",");
+                        parseCSVLine(
+                            linha
+                        );
+
 
                     const objeto = {};
 
-                    cabecalho.forEach(
-                        (coluna, indice) => {
 
-                            objeto[coluna] =
-                                valores[indice];
+                    cabecalho.forEach(
+                        (
+                            coluna,
+                            indice
+                        ) => {
+
+                            objeto[
+                                coluna
+                            ] =
+                                valores[
+                                    indice
+                                ] || "";
 
                         }
                     );
+
 
                     return objeto;
 
                 }
             );
+
 
     atualizarDescobertas();
 
@@ -56,9 +141,14 @@ async function carregarDados() {
 
 
 
+/* =========================================
+   ANALYTICS
+========================================= */
+
 function atualizarDescobertas() {
 
     const contagemAnual = {};
+
 
     exoplanetas.forEach(
         planeta => {
@@ -68,20 +158,28 @@ function atualizarDescobertas() {
                     planeta.disc_year
                 );
 
+
             if (
                 !isNaN(ano) &&
                 ano > 0
             ) {
 
                 if (
-                    !contagemAnual[ano]
+                    !contagemAnual[
+                        ano
+                    ]
                 ) {
 
-                    contagemAnual[ano] = 0;
+                    contagemAnual[
+                        ano
+                    ] = 0;
 
                 }
 
-                contagemAnual[ano]++;
+
+                contagemAnual[
+                    ano
+                ]++;
 
             }
 
@@ -90,14 +188,15 @@ function atualizarDescobertas() {
 
 
     const anos =
-        Object.keys(
-            contagemAnual
-        )
-        .map(Number)
-        .sort(
-            (a, b) =>
-                a - b
-        );
+        Object
+            .keys(
+                contagemAnual
+            )
+            .map(Number)
+            .sort(
+                (a, b) =>
+                    a - b
+            );
 
 
     const primeiroAno =
@@ -107,29 +206,37 @@ function atualizarDescobertas() {
 
 
     let anoPico = "—";
+
     let quantidadePico = 0;
 
 
-    Object.entries(
-        contagemAnual
-    ).forEach(
-        ([ano, quantidade]) => {
+    Object
+        .entries(
+            contagemAnual
+        )
+        .forEach(
+            (
+                [
+                    ano,
+                    quantidade
+                ]
+            ) => {
 
-            if (
-                quantidade >
-                quantidadePico
-            ) {
+                if (
+                    quantidade >
+                    quantidadePico
+                ) {
 
-                quantidadePico =
-                    quantidade;
+                    quantidadePico =
+                        quantidade;
 
-                anoPico =
-                    ano;
+                    anoPico =
+                        ano;
+
+                }
 
             }
-
-        }
-    );
+        );
 
 
     document
@@ -173,22 +280,37 @@ function atualizarDescobertas() {
 
 
 
+/* =========================================
+   DISCOVERIES BY YEAR
+========================================= */
+
 function criarGraficoTimeline(
     anos,
     contagemAnual
 ) {
 
-    new Chart(
+    const canvas =
         document.getElementById(
             "discoveriesChart"
-        ),
+        );
+
+
+    if (!canvas) {
+        return;
+    }
+
+
+    new Chart(
+        canvas,
         {
 
-            type: "line",
+            type:
+                "line",
 
             data: {
 
-                labels: anos,
+                labels:
+                    anos,
 
                 datasets: [
                     {
@@ -199,7 +321,9 @@ function criarGraficoTimeline(
                         data:
                             anos.map(
                                 ano =>
-                                    contagemAnual[ano]
+                                    contagemAnual[
+                                        ano
+                                    ]
                             ),
 
                         borderColor:
@@ -211,53 +335,67 @@ function criarGraficoTimeline(
                         pointBackgroundColor:
                             "rgba(157, 124, 255, 1)",
 
-                        borderWidth: 2,
+                        borderWidth:
+                            2,
 
-                        pointRadius: 2,
+                        pointRadius:
+                            2,
 
-                        tension: 0.35,
+                        tension:
+                            0.35,
 
-                        fill: true
+                        fill:
+                            true
 
                     }
                 ]
 
             },
 
+
             options: {
 
-                responsive: true,
+                responsive:
+                    true,
 
-                maintainAspectRatio: false,
+                maintainAspectRatio:
+                    false,
 
                 plugins: {
 
                     legend: {
-                        display: false
+                        display:
+                            false
                     }
 
                 },
+
 
                 scales: {
 
                     x: {
 
                         ticks: {
-                            color: "#a7b0cf"
+                            color:
+                                "#a7b0cf"
                         },
 
                         grid: {
-                            display: false
+                            display:
+                                false
                         }
 
                     },
 
+
                     y: {
 
-                        beginAtZero: true,
+                        beginAtZero:
+                            true,
 
                         ticks: {
-                            color: "#a7b0cf"
+                            color:
+                                "#a7b0cf"
                         },
 
                         grid: {
@@ -278,85 +416,171 @@ function criarGraficoTimeline(
 
 
 
-function criarGraficoMetodos(anos) {
+/* =========================================
+   METHODS OVER TIME
+========================================= */
 
-    const principaisMetodos = [
-        "Transit",
-        "Radial Velocity",
-        "Imaging",
-        "Microlensing"
-    ];
+function criarGraficoMetodos(
+    anos
+) {
+
+    const metodosEncontrados =
+        [
+            ...new Set(
+                exoplanetas
+                    .map(
+                        planeta =>
+                            (
+                                planeta
+                                    .discoverymethod ||
+                                ""
+                            )
+                            .trim()
+                    )
+                    .filter(Boolean)
+            )
+        ];
 
 
-    const limparTexto = valor => {
+    console.log(
+        "Discovery methods found:",
+        metodosEncontrados
+    );
 
-        if (!valor) {
-            return "";
+
+    const contagemTotal =
+        {};
+
+
+    exoplanetas.forEach(
+        planeta => {
+
+            const metodo =
+                (
+                    planeta
+                        .discoverymethod ||
+                    ""
+                )
+                .trim();
+
+
+            if (!metodo) {
+                return;
+            }
+
+
+            if (
+                !contagemTotal[
+                    metodo
+                ]
+            ) {
+
+                contagemTotal[
+                    metodo
+                ] = 0;
+
+            }
+
+
+            contagemTotal[
+                metodo
+            ]++;
+
         }
+    );
 
-        return String(valor)
-            .replace(/"/g, "")
-            .trim();
 
-    };
+    const principaisMetodos =
+        Object
+            .entries(
+                contagemTotal
+            )
+            .sort(
+                (a, b) =>
+                    b[1] -
+                    a[1]
+            )
+            .slice(
+                0,
+                4
+            )
+            .map(
+                item =>
+                    item[0]
+            );
 
 
     const datasets =
-        principaisMetodos.map(
-            metodo => {
+        principaisMetodos
+            .map(
+                metodo => {
 
-                const valores =
-                    anos.map(
-                        ano => {
+                    const valores =
+                        anos.map(
+                            ano => {
 
-                            return exoplanetas.filter(
-                                planeta => {
+                                return exoplanetas
+                                    .filter(
+                                        planeta => {
 
-                                    const metodoPlaneta =
-                                        limparTexto(
-                                            planeta.discoverymethod
-                                        );
-
-                                    const anoPlaneta =
-                                        Number(
-                                            limparTexto(
-                                                planeta.disc_year
-                                            )
-                                        );
+                                            const metodoPlaneta =
+                                                (
+                                                    planeta
+                                                        .discoverymethod ||
+                                                    ""
+                                                )
+                                                .trim();
 
 
-                                    return (
-                                        metodoPlaneta === metodo &&
-                                        anoPlaneta === ano
-                                    );
-
-                                }
-                            ).length;
-
-                        }
-                    );
+                                            const anoPlaneta =
+                                                Number(
+                                                    planeta
+                                                        .disc_year
+                                                );
 
 
-                return {
+                                            return (
+                                                metodoPlaneta ===
+                                                    metodo &&
+                                                anoPlaneta ===
+                                                    ano
+                                            );
 
-                    label: metodo,
+                                        }
+                                    )
+                                    .length;
 
-                    data: valores,
+                            }
+                        );
 
-                    tension: 0.35,
 
-                    borderWidth: 2,
+                    return {
 
-                    pointRadius: 2,
+                        label:
+                            metodo,
 
-                    pointHoverRadius: 5,
+                        data:
+                            valores,
 
-                    fill: false
+                        tension:
+                            0.35,
 
-                };
+                        borderWidth:
+                            2,
 
-            }
-        );
+                        pointRadius:
+                            2,
+
+                        pointHoverRadius:
+                            5,
+
+                        fill:
+                            false
+
+                    };
+
+                }
+            );
 
 
     const canvas =
@@ -374,54 +598,69 @@ function criarGraficoMetodos(anos) {
         canvas,
         {
 
-            type: "line",
+            type:
+                "line",
 
             data: {
 
-                labels: anos,
+                labels:
+                    anos,
 
-                datasets: datasets
+                datasets:
+                    datasets
 
             },
 
+
             options: {
 
-                responsive: true,
+                responsive:
+                    true,
 
-                maintainAspectRatio: false,
+                maintainAspectRatio:
+                    false,
 
                 interaction: {
 
-                    mode: "index",
+                    mode:
+                        "index",
 
-                    intersect: false
+                    intersect:
+                        false
 
                 },
+
 
                 plugins: {
 
                     legend: {
 
                         labels: {
-                            color: "#a7b0cf"
+                            color:
+                                "#a7b0cf"
                         }
 
                     },
+
 
                     tooltip: {
 
                         callbacks: {
 
-                            label: contexto => {
+                            label:
+                                contexto => {
 
-                                return (
-                                    contexto.dataset.label +
-                                    ": " +
-                                    contexto.raw +
-                                    " discoveries"
-                                );
+                                    return (
+                                        contexto
+                                            .dataset
+                                            .label +
+                                        ": " +
+                                        contexto
+                                            .raw +
+                                        " discoveries"
+                                    );
 
-                            }
+                                }
 
                         }
 
@@ -429,26 +668,32 @@ function criarGraficoMetodos(anos) {
 
                 },
 
+
                 scales: {
 
                     x: {
 
                         ticks: {
-                            color: "#a7b0cf"
+                            color:
+                                "#a7b0cf"
                         },
 
                         grid: {
-                            display: false
+                            display:
+                                false
                         }
 
                     },
 
+
                     y: {
 
-                        beginAtZero: true,
+                        beginAtZero:
+                            true,
 
                         ticks: {
-                            color: "#a7b0cf"
+                            color:
+                                "#a7b0cf"
                         },
 
                         grid: {
@@ -468,5 +713,9 @@ function criarGraficoMetodos(anos) {
 }
 
 
+
+/* =========================================
+   START
+========================================= */
 
 carregarDados();
