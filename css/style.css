@@ -1945,8 +1945,8 @@ body::before {
 
     background-image:
         linear-gradient(
-            rgba(3, 5, 18, 0.58),
-            rgba(4, 6, 20, 0.68)
+rgba(3, 5, 18, 0.40),
+rgba(4, 6, 20, 0.52)
         ),
         url("../galaxy-bg.png.png") !important;
 
