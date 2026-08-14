@@ -278,9 +278,7 @@ function criarGraficoTimeline(
 
 
 
-function criarGraficoMetodos(
-    anos
-) {
+function criarGraficoMetodos(anos) {
 
     const principaisMetodos = [
         "Transit",
@@ -288,6 +286,19 @@ function criarGraficoMetodos(
         "Imaging",
         "Microlensing"
     ];
+
+
+    const limparTexto = valor => {
+
+        if (!valor) {
+            return "";
+        }
+
+        return String(valor)
+            .replace(/"/g, "")
+            .trim();
+
+    };
 
 
     const datasets =
@@ -298,17 +309,29 @@ function criarGraficoMetodos(
                     anos.map(
                         ano => {
 
-                            return exoplanetas
-                                .filter(
-                                    planeta =>
-                                        planeta.discoverymethod ===
-                                        metodo &&
+                            return exoplanetas.filter(
+                                planeta => {
+
+                                    const metodoPlaneta =
+                                        limparTexto(
+                                            planeta.discoverymethod
+                                        );
+
+                                    const anoPlaneta =
                                         Number(
-                                            planeta.disc_year
-                                        ) ===
-                                        ano
-                                )
-                                .length;
+                                            limparTexto(
+                                                planeta.disc_year
+                                            )
+                                        );
+
+
+                                    return (
+                                        metodoPlaneta === metodo &&
+                                        anoPlaneta === ano
+                                    );
+
+                                }
+                            ).length;
 
                         }
                     );
@@ -316,20 +339,19 @@ function criarGraficoMetodos(
 
                 return {
 
-                    label:
-                        metodo,
+                    label: metodo,
 
-                    data:
-                        valores,
+                    data: valores,
 
-                    tension:
-                        0.35,
+                    tension: 0.35,
 
-                    borderWidth:
-                        2,
+                    borderWidth: 2,
 
-                    pointRadius:
-                        1
+                    pointRadius: 2,
+
+                    pointHoverRadius: 5,
+
+                    fill: false
 
                 };
 
@@ -337,40 +359,70 @@ function criarGraficoMetodos(
         );
 
 
-    new Chart(
+    const canvas =
         document.getElementById(
             "methodsTimelineChart"
-        ),
+        );
+
+
+    if (!canvas) {
+        return;
+    }
+
+
+    new Chart(
+        canvas,
         {
 
-            type:
-                "line",
+            type: "line",
 
             data: {
 
-                labels:
-                    anos,
+                labels: anos,
 
-                datasets:
-                    datasets
+                datasets: datasets
 
             },
 
             options: {
 
-                responsive:
-                    true,
+                responsive: true,
 
-                maintainAspectRatio:
-                    false,
+                maintainAspectRatio: false,
+
+                interaction: {
+
+                    mode: "index",
+
+                    intersect: false
+
+                },
 
                 plugins: {
 
                     legend: {
 
                         labels: {
-                            color:
-                                "#a7b0cf"
+                            color: "#a7b0cf"
+                        }
+
+                    },
+
+                    tooltip: {
+
+                        callbacks: {
+
+                            label: contexto => {
+
+                                return (
+                                    contexto.dataset.label +
+                                    ": " +
+                                    contexto.raw +
+                                    " discoveries"
+                                );
+
+                            }
+
                         }
 
                     }
@@ -382,25 +434,21 @@ function criarGraficoMetodos(
                     x: {
 
                         ticks: {
-                            color:
-                                "#a7b0cf"
+                            color: "#a7b0cf"
                         },
 
                         grid: {
-                            display:
-                                false
+                            display: false
                         }
 
                     },
 
                     y: {
 
-                        beginAtZero:
-                            true,
+                        beginAtZero: true,
 
                         ticks: {
-                            color:
-                                "#a7b0cf"
+                            color: "#a7b0cf"
                         },
 
                         grid: {
