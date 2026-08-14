@@ -1899,3 +1899,16 @@ footer strong {
     }
 
 }
+body {
+    background:
+        linear-gradient(
+            rgba(3, 5, 18, 0.78),
+            rgba(4, 6, 20, 0.84)
+        ),
+        url("../galaxy-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
