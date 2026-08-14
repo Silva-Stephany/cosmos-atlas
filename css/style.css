@@ -1312,3 +1312,63 @@ tbody tr:hover {
     }
 
 }
+/* =========================================
+   ABOUT TEXT CARDS
+========================================= */
+
+.about-card,
+.about-section,
+.about-source,
+.about-author {
+    border-radius: 24px;
+
+    background:
+        rgba(20, 27, 55, 0.78);
+
+    border:
+        1px solid
+        rgba(153, 172, 255, 0.16);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.18);
+
+    backdrop-filter:
+        blur(14px);
+}
+
+.about-card {
+    padding: 28px;
+}
+
+.about-section {
+    padding: 30px;
+
+    margin: 28px 0;
+}
+
+.about-source {
+    padding: 30px;
+
+    margin: 28px 0;
+}
+
+.about-author {
+    padding: 30px;
+
+    margin: 35px 0 20px;
+}
+
+.about-card:hover,
+.about-section:hover,
+.about-source:hover {
+    transform: translateY(-3px);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    box-shadow:
+        0 24px 55px
+        rgba(0, 0, 0, 0.24);
+}
