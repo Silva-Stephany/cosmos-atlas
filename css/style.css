@@ -1900,15 +1900,19 @@ footer strong {
 
 }
 body {
-    background:
+    background-image:
         linear-gradient(
-            rgba(3, 5, 18, 0.78),
-            rgba(4, 6, 20, 0.84)
+            rgba(3, 5, 18, 0.55),
+            rgba(4, 6, 20, 0.65)
         ),
-        url("../galaxy-bg.png.png")
+        url("../galaxy-bg.png.png") !important;
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+body::before {
+    display: none !important;
 }
