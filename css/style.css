@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 
 :root {
     --bg: #050816;
@@ -1370,4 +1370,532 @@ tbody tr:hover {
     box-shadow:
         0 24px 55px
         rgba(0, 0, 0, 0.24);
+}
+/* =========================================
+   COSMOS ATLAS — FINAL VISUAL THEME
+========================================= */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: var(--font-body);
+    color: #f4f6ff;
+
+    background:
+        linear-gradient(
+            rgba(3, 5, 17, 0.80),
+            rgba(5, 7, 24, 0.88)
+        ),
+        url("../assets/images/galaxy-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* NAVIGATION */
+
+.navbar {
+    width: calc(100% - 60px);
+    max-width: 1440px;
+
+    margin: 26px auto 0;
+
+    padding: 20px 30px;
+
+    border-radius: 20px 20px 0 0;
+
+    background:
+        rgba(5, 8, 25, 0.82);
+
+    border:
+        1px solid
+        rgba(126, 147, 255, 0.18);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(0, 0, 0, 0.28);
+}
+
+
+.brand {
+    font-family:
+        var(--font-title);
+
+    font-size: 1.35rem;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    text-shadow:
+        0 0 16px
+        rgba(113, 151, 255, 0.55);
+}
+
+
+.nav-links a {
+    position: relative;
+
+    color:
+        rgba(245, 247, 255, 0.86);
+
+    font-size: 0.88rem;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.nav-links a:hover {
+    color: white;
+}
+
+
+.nav-links a:hover::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: -12px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #917cff,
+            #62d9ff
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(102, 217, 255, 0.8);
+}
+
+
+/* MAIN */
+
+main {
+    width: calc(100% - 60px);
+    max-width: 1440px;
+
+    margin: 0 auto;
+
+    padding: 30px;
+}
+
+
+/* HERO */
+
+.hero,
+.page-hero {
+    position: relative;
+
+    min-height: auto;
+
+    max-width: 780px;
+
+    margin: 0;
+
+    padding: 55px 38px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15, 20, 55, 0.88),
+            rgba(25, 28, 70, 0.70)
+        );
+
+    border:
+        1px solid
+        rgba(126, 147, 255, 0.20);
+
+    backdrop-filter:
+        blur(16px);
+
+    box-shadow:
+        0 20px 55px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.hero h1,
+.page-hero h1 {
+    font-family:
+        var(--font-title);
+
+    font-weight: 500;
+
+    color: #ffffff;
+
+    letter-spacing: 1px;
+
+    line-height: 1.2;
+
+    background: none;
+
+    -webkit-background-clip: unset;
+}
+
+
+.hero h1 {
+    font-size:
+        clamp(
+            2.7rem,
+            6vw,
+            5rem
+        );
+}
+
+
+.page-hero h1 {
+    font-size:
+        clamp(
+            2.3rem,
+            5vw,
+            4rem
+        );
+}
+
+
+.hero-text,
+.page-hero p {
+    color:
+        rgba(232, 236, 255, 0.82);
+
+    line-height: 1.75;
+}
+
+
+.eyebrow {
+    color: #9aa8ff;
+
+    font-size: 0.68rem;
+
+    letter-spacing: 2.2px;
+}
+
+
+/* BUTTON */
+
+.hero-button {
+    padding: 13px 22px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #536dff,
+            #8d5cff
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(108, 93, 255, 0.32);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.hero-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 35px
+        rgba(108, 93, 255, 0.50);
+}
+
+
+/* GENERAL GLASS CARDS */
+
+.card,
+.chart-card,
+.about-card,
+.about-section,
+.about-source,
+.about-author,
+.planet-panel,
+.habitability-method,
+.habitability-warning,
+.compare-controls,
+.filters-panel,
+.table-container {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10, 15, 43, 0.88),
+            rgba(15, 19, 54, 0.78)
+        );
+
+    border:
+        1px solid
+        rgba(135, 153, 255, 0.18);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 18px 50px
+        rgba(0, 0, 0, 0.24);
+}
+
+
+/* KPI CARDS */
+
+.card {
+    border-radius: 18px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(115, 156, 255, 0.40);
+
+    box-shadow:
+        0 20px 55px
+        rgba(0, 0, 0, 0.32),
+        0 0 25px
+        rgba(105, 105, 255, 0.08);
+}
+
+
+.card-label {
+    color:
+        #9ba9d2;
+}
+
+
+.card strong {
+    color: white;
+
+    font-family:
+        var(--font-title);
+}
+
+
+/* CHARTS */
+
+.chart-card {
+    border-radius: 18px;
+}
+
+
+.chart-card h3 {
+    font-family:
+        var(--font-title);
+
+    font-weight: 500;
+
+    color: white;
+}
+
+
+.chart-label {
+    color: #8f9cff;
+}
+
+
+/* SECTION TITLES */
+
+.section-heading h2,
+.about-section h2,
+.habitability-method h2 {
+    font-family:
+        var(--font-title);
+
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+
+    color: white;
+}
+
+
+/* FILTERS */
+
+.filter-group input,
+.filter-group select {
+    background:
+        rgba(6, 9, 29, 0.90);
+
+    border:
+        1px solid
+        rgba(134, 152, 255, 0.22);
+
+    color: white;
+}
+
+
+.filter-group input:focus,
+.filter-group select:focus {
+    border-color: #779aff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(113, 151, 255, 0.08);
+}
+
+
+/* TABLE */
+
+.table-container {
+    border-radius: 18px;
+}
+
+
+thead {
+    background:
+        rgba(82, 102, 190, 0.11);
+}
+
+
+th {
+    color: #98b4ff;
+}
+
+
+td {
+    color:
+        rgba(226, 231, 255, 0.76);
+}
+
+
+tbody tr:hover {
+    background:
+        rgba(100, 126, 255, 0.07);
+}
+
+
+/* ABOUT */
+
+.about-card {
+    border-radius: 18px;
+}
+
+
+.about-features div {
+    background:
+        rgba(10, 15, 43, 0.72);
+
+    border:
+        1px solid
+        rgba(135, 153, 255, 0.13);
+
+    border-radius: 16px;
+}
+
+
+.tech-list span {
+    background:
+        rgba(63, 74, 150, 0.22);
+
+    border:
+        1px solid
+        rgba(136, 150, 255, 0.17);
+
+    color: #d8dcff;
+}
+
+
+/* AUTHOR */
+
+.about-author {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(49, 54, 131, 0.52),
+            rgba(69, 42, 126, 0.48)
+        );
+}
+
+
+.about-author h2 {
+    font-family:
+        var(--font-title);
+
+    font-weight: 500;
+}
+
+
+/* FOOTER */
+
+footer {
+    width: calc(100% - 60px);
+    max-width: 1440px;
+
+    margin: 0 auto 26px;
+
+    padding: 18px;
+
+    border-radius:
+        0 0 20px 20px;
+
+    background:
+        rgba(5, 8, 25, 0.82);
+
+    border:
+        1px solid
+        rgba(126, 147, 255, 0.18);
+
+    color:
+        #929abf;
+
+    backdrop-filter:
+        blur(18px);
+}
+
+
+footer strong {
+    color: #d9dcff;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .navbar,
+    main,
+    footer {
+        width:
+            calc(100% - 24px);
+    }
+
+    main {
+        padding:
+            18px;
+    }
+
+    .hero,
+    .page-hero {
+        padding:
+            35px 24px;
+    }
+
 }
