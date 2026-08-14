@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap');
 
 :root {
     --bg: #050816;
@@ -14,8 +14,8 @@
     --violet: #9d7cff;
     --cyan: #66d9ff;
 
-    --font-title: "Space Grotesk", sans-serif;
-    --font-body: "Inter", sans-serif;
+--font-title: "Orbitron", sans-serif;
+--font-body: "Inter", sans-serif;
 }
 
 * {
